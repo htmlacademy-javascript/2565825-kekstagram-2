@@ -1,0 +1,1396 @@
+/* CSS placed here will be applied to all skins */
+
+:root {
+  /* start font settings */
+  --wiki-body-font-family: sans-serif;
+  --wiki-heading-font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+  --wiki-sidebar-heading-font-family: sans-serif;
+  /* end font settings */
+
+  /* start design variables */
+  --wiki-sidebar-border-radius: 0px;
+  /* these two variables must have units specified even if 0, ignore the warning */
+  --wiki-sidebar-portal-spacing: 0px;
+  /* end design variables */
+}
+
+/* the rest of the variables will modify some type of color, either text color, background color, border color, etc. */
+
+:root,
+/* Begin light theme, delete from here to "end light theme" if you don't want your wiki to support a light theme (remove from [[Mediawiki:Theme-definitions]] too, or ask wiki.gg staff for help doing this) */
+.view-light {
+  /**********************
+	* Probably edit these * [ LIGHT THEME, if you are making a dark theme edit the other block ]
+	***********************/
+  --wiki-body-background-color: #F6F6F6;
+  --wiki-body-background-color--rgb: 246, 246, 246;
+  --wiki-body-background-image: url(/images/8/80/Site-background.jpg);
+  /* please find the file path by viewing the image directly (click the image from the File: page) */
+
+  --wiki-content-background-color: #ffffff;
+  --wiki-content-background-color--rgb: 255, 255, 255;
+  --wiki-content-background-opacity: 1;
+  --wiki-content-background-color--secondary: #fbfbfb;
+  --wiki-content-background-color--secondary--rgb: 251, 251, 251;
+  --wiki-content-border-color: #a7d7f9;
+  --wiki-content-border-color--rgb: 167, 215, 249;
+  --wiki-content-link-color: #0645ad;
+  --wiki-content-link-color--rgb: 6, 69, 173;
+  --wiki-content-text-mix-color: #646464;
+  --wiki-content-text-mix-color--rgb: 100, 100, 100;
+  --wiki-content-text-mix-color-95: #f3f3f3;
+  --wiki-content-text-mix-color-95--rgb: 243, 243, 243;
+  /* [ LIGHT THEME ] */
+  --wiki-accent-color: #3366cc;
+  --wiki-accent-color--rgb: 51, 102, 204;
+  --wiki-accent-color--hover: #447ff5;
+  --wiki-accent-color--hover--rgb: 68, 127, 245;
+  --wiki-accent-label-color: #ffffff;
+  --wiki-accent-label-color--rgb: 255, 255, 255;
+  --wiki-accent-link-color: #D5FB51;
+  --wiki-accent-link-color--rgb: 213, 251, 81;
+
+  --wiki-icon-to-link-filter: invert(20%) sepia(93%) saturate(2141%) hue-rotate(210deg) brightness(83%) contrast(103%);
+  /* put your --wiki-content-link-color into https://mrpie5.gitlab.io/css-filter-generator/ */
+  /**/
+
+
+  /*******************
+    * Maybe edit these * [ LIGHT THEME, if you are making a dark theme edit the other block ]
+    ********************/
+  --wiki-body-background-position: top center;
+  --wiki-body-background-size: cover;
+  --wiki-body-background-repeat: no-repeat;
+  --wiki-body-background-attachment: fixed;
+
+  --wiki-content-text-color: #111111;
+  --wiki-content-text-color--rgb: 17, 17, 17;
+  --wiki-content-link-color--visited: var(--wiki-content-link-color);
+  --wiki-content-link-color--visited--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-content-link-color--hover: var(--wiki-content-link-color);
+  --wiki-content-link-color--hover--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-content-redlink-color: #21c3eb;
+  --wiki-content-redlink-color--rgb: 186, 0, 0;
+
+  --wiki-content-heading-color: var(--wiki-content-text-color);
+  --wiki-content-heading-color--rgb: var(--wiki-content-text-color--rgb);
+  /* [ LIGHT THEME ] */
+  --wiki-sidebar-background-color: var(--wiki-content-background-color);
+  --wiki-sidebar-background-color--rgb: var(--wiki-content-background-color--rgb);
+  --wiki-sidebar-background-opacity: var(--wiki-content-background-opacity);
+  --wiki-sidebar-border-color: var(--wiki-content-border-color);
+  --wiki-sidebar-border-color--rgb: var(--wiki-content-border-color--rgb);
+  --wiki-sidebar-link-color: var(--wiki-content-link-color);
+  --wiki-sidebar-link-color--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-sidebar-link-color--hover: var(--wiki-content-link-color--hover);
+  --wiki-sidebar-link-color--hover--rgb: var(--wiki-content-link-color--hover--rgb);
+  --wiki-sidebar-heading-color: var(--wiki-content-heading-color);
+  --wiki-sidebar-heading-color--rgb: var(--wiki-content-heading-color--rgb);
+  /* [ LIGHT THEME ] */
+  --wiki-navigation-background-color: var(--wiki-content-background-color--secondary);
+  --wiki-navigation-background-color--rgb: var(--wiki-content-background-color--secondary--rgb);
+  --wiki-navigation-background-color--secondary: var(--wiki-content-background-color);
+  --wiki-navigation-background-color--secondary--rgb: var(--wiki-content-background-color--rgb);
+  --wiki-navigation-border-color: var(--wiki-content-border-color);
+  --wiki-navigation-border-color--rgb: var(--wiki-content-border-color--rgb);
+  --wiki-navigation-text-color: var(--wiki-content-link-color);
+  --wiki-navigation-text-color--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-navigation-text-color--hover: var(--wiki-content-link-color--hover);
+  --wiki-navigation-text-color--hover--rgb: var(--wiki-content-link-color--hover--rgb);
+  --wiki-navigation-selected-background-color: var(--wiki-content-background-color);
+  --wiki-navigation-selected-background-color--rgb: var(--wiki-content-background-color--rgb);
+  --wiki-navigation-selected-border-color: var(--wiki-navigation-border-color);
+  --wiki-navigation-selected-border-color--rgb: var(--wiki-navigation-border-color--rgb);
+  --wiki-navigation-selected-text-color: var(--wiki-content-text-color);
+  --wiki-navigation-selected-text-color--rgb: var(--wiki-content-text-color--rgb);
+  /* [ LIGHT THEME ] */
+  --wiki-neutral-color: var(--wiki-content-text-mix-color);
+  --wiki-neutral-color--rgb: var(--wiki-content-text-mix-color--rgb);
+  --wiki-alert-color: #21c3eb;
+  --wiki-alert-color--rgb: 191, 0, 23;
+  --wiki-warning-color: #cf721c;
+  --wiki-warning-color--rgb: 207, 114, 28;
+  --wiki-success-color: #0c742f;
+  --wiki-success-color--rgb: 12, 116, 47;
+  /**/
+
+
+  /***********************************
+    * Likely do not need to edit these *  [ LIGHT THEME, if you are making a dark theme edit the other block ]
+    ************************************/
+  --wiki-body-dynamic-color: #000000;
+  --wiki-body-dynamic-color--rgb: 0, 0, 0;
+  --wiki-body-dynamic-color--inverted: #ffffff;
+  --wiki-body-dynamic-color--inverted--rgb: 255, 255, 255;
+  --wiki-body-dynamic-color--secondary: #333333;
+  --wiki-body-dynamic-color--secondary--rgb: 51, 51, 51;
+  --wiki-body-dynamic-color--secondary--inverted: #dddddd;
+  --wiki-body-dynamic-color--secondary--inverted--rgb: 221, 221, 221;
+
+  --wiki-content-border-color--secondary: rgba(var(--wiki-content-border-color--rgb), 0.5);
+  --wiki-content-border-color--secondary--rgb: var(--wiki-content-border-color--rgb);
+  --wiki-content-border-color--accent: rgba(var(--wiki-accent-color--rgb), 0.5);
+  --wiki-content-border-color--accent--rgb: var(--wiki-accent-color--rgb);
+  --wiki-content-link-label-color: #ffffff;
+  --wiki-content-link-label-color--rgb: 255, 255, 255;
+  --wiki-content-dynamic-color: #000000;
+  --wiki-content-dynamic-color--rgb: 0, 0, 0;
+  --wiki-content-dynamic-color--inverted: #ffffff;
+  --wiki-content-dynamic-color--inverted--rgb: 255, 255, 255;
+  --wiki-content-dynamic-color--secondary: #333333;
+  --wiki-content-dynamic-color--secondary--rgb: 51, 51, 51;
+  --wiki-content-dynamic-color--secondary--inverted: #dddddd;
+  --wiki-content-dynamic-color--secondary--inverted--rgb: 221, 221, 221;
+  /* [ LIGHT THEME ] */
+  --wiki-alert-label-color: #ffffff;
+  --wiki-alert-label-color--rgb: 255, 255, 255;
+  --wiki-warning-label-color: #000000;
+  --wiki-warning-label-color--rgb: 0, 0, 0;
+  --wiki-success-label-color: #ffffff;
+  --wiki-success-label-color--rgb: 255, 255, 255;
+
+  --wiki-icon-general-filter: ;
+  /* do not set this to none, ignore the "unexpected token" error */
+  /**/
+}
+
+/* end light theme */
+
+/* Begin dark theme, delete from here to "end dark theme" if you don't want your wiki to support a dark theme (remove it from [[Mediawiki:Theme-definitions]] too, or ask wiki.gg staff for help doing this) */
+.view-dark {
+  /**********************
+	* Probably edit these * [ DARK THEME, if you are making a light theme edit the other block ]
+	***********************/
+  --wiki-body-background-color: #171717;
+  --wiki-body-background-color--rgb: 23, 23, 23;
+  --wiki-body-background-image: url(/images/c/c4/Site-background-dark.jpg);
+  /* please find the file path by viewing the image directly (not at the File: page) */
+
+  --wiki-content-background-color: #202020;
+  --wiki-content-background-color--rgb: 32, 32, 32;
+  --wiki-content-background-opacity: 0.9;
+  --wiki-content-background-color--secondary: #2b2b2b;
+  --wiki-content-background-color--secondary--rgb: 43, 43, 43;
+  --wiki-content-border-color: #21ebeb;
+  --wiki-content-border-color--rgb: 153, 26, 81;
+  --wiki-content-link-color: #6d8afb;
+  --wiki-content-link-color--rgb: 109, 138, 251;
+  --wiki-content-text-mix-color: #9b9b9b;
+  --wiki-content-text-mix-color--rgb: 155, 155, 155;
+  --wiki-content-text-mix-color-95: #2a2a2a;
+  --wiki-content-text-mix-color-95--rgb: 42, 42, 42;
+  /* [ DARK THEME ] */
+  --wiki-accent-color: #21ebeb;
+  --wiki-accent-color--rgb: 255, 36, 134;
+  --wiki-accent-color--hover: #21ebeb;
+  --wiki-accent-color--hover--rgb: 216, 32, 115;
+  --wiki-accent-label-color: #000;
+  --wiki-accent-label-color--rgb: 0, 0, 0;
+  --wiki-accent-link-color: #22214d;
+  --wiki-accent-link-color--rgb: 34, 33, 77;
+
+
+  --wiki-icon-to-link-filter: invert(60%) sepia(70%) saturate(3715%) hue-rotate(206deg) brightness(101%) contrast(97%);
+  /* put your --wiki-content-link-color into https://mrpie5.gitlab.io/css-filter-generator/ */
+  /**/
+
+
+  /*******************
+    * Maybe edit these * [ DARK THEME, if you are making a light theme edit the other block ]
+    ********************/
+  --wiki-body-background-position: top center;
+  --wiki-body-background-size: cover;
+  --wiki-body-background-repeat: no-repeat;
+  --wiki-body-background-attachment: fixed;
+
+  --wiki-content-text-color: #ededed;
+  --wiki-content-text-color--rgb: 237, 237, 237;
+  --wiki-content-link-color--visited: var(--wiki-content-link-color);
+  --wiki-content-link-color--visited--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-content-link-color--hover: var(--wiki-content-link-color);
+  --wiki-content-link-color--hover--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-content-redlink-color: #21c3eb;
+  --wiki-content-redlink-color--rgb: 252, 72, 59;
+
+  --wiki-content-heading-color: var(--wiki-content-text-color);
+  --wiki-content-heading-color--rgb: var(--wiki-content-text-color--rgb);
+  /* [ DARK THEME ] */
+  --wiki-sidebar-background-color: var(--wiki-content-background-color);
+  --wiki-sidebar-background-color--rgb: var(--wiki-content-background-color--rgb);
+  --wiki-sidebar-background-opacity: var(--wiki-content-background-opacity);
+  --wiki-sidebar-border-color: var(--wiki-content-border-color);
+  --wiki-sidebar-border-color--rgb: var(--wiki-content-border-color--rgb);
+  --wiki-sidebar-link-color: var(--wiki-content-link-color);
+  --wiki-sidebar-link-color--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-sidebar-link-color--hover: var(--wiki-content-link-color--hover);
+  --wiki-sidebar-link-color--hover--rgb: var(--wiki-content-link-color--hover--rgb);
+  --wiki-sidebar-heading-color: var(--wiki-content-heading-color);
+  --wiki-sidebar-heading-color--rgb: var(--wiki-content-heading-color--rgb);
+  /* [ DARK THEME ] */
+  --wiki-navigation-background-color: var(--wiki-content-background-color--secondary);
+  --wiki-navigation-background-color--rgb: var(--wiki-content-background-color--secondary--rgb);
+  --wiki-navigation-background-color--secondary: var(--wiki-content-background-color);
+  --wiki-navigation-background-color--secondary--rgb: var(--wiki-content-background-color--rgb);
+  --wiki-navigation-border-color: var(--wiki-content-border-color);
+  --wiki-navigation-border-color--rgb: var(--wiki-content-border-color--rgb);
+  --wiki-navigation-text-color: var(--wiki-content-link-color);
+  --wiki-navigation-text-color--rgb: var(--wiki-content-link-color--rgb);
+  --wiki-navigation-text-color--hover: var(--wiki-content-link-color--hover);
+  --wiki-navigation-text-color--hover--rgb: var(--wiki-content-link-color--hover--rgb);
+  --wiki-navigation-selected-background-color: var(--wiki-content-background-color);
+  --wiki-navigation-selected-background-color--rgb: var(--wiki-content-background-color--rgb);
+  --wiki-navigation-selected-border-color: var(--wiki-navigation-border-color);
+  --wiki-navigation-selected-border-color--rgb: var(--wiki-navigation-border-color--rgb);
+  --wiki-navigation-selected-text-color: var(--wiki-content-text-color);
+  --wiki-navigation-selected-text-color--rgb: var(--wiki-content-text-color--rgb);
+  /* [ DARK THEME ] */
+  --wiki-neutral-color: var(--wiki-content-text-mix-color);
+  --wiki-neutral-color--rgb: var(--wiki-content-text-mix-color--rgb);
+  --wiki-alert-color: #21c3eb;
+  --wiki-alert-color--rgb: 255, 77, 97;
+  --wiki-warning-color: #cf721c;
+  --wiki-warning-color--rgb: 207, 114, 28;
+  --wiki-success-color: #13aa45;
+  --wiki-success-color--rgb: 19, 170, 69;
+  /**/
+
+
+  /***********************************
+    * Likely do not need to edit these * [ DARK THEME, if you are making a light theme edit the other block ]
+    ************************************/
+  --wiki-body-dynamic-color: #ffffff;
+  --wiki-body-dynamic-color--rgb: 255, 255, 255;
+  --wiki-body-dynamic-color--inverted: #000000;
+  --wiki-body-dynamic-color--inverted--rgb: 0, 0, 0;
+  --wiki-body-dynamic-color--secondary: #dddddd;
+  --wiki-body-dynamic-color--secondary--rgb: 221, 221, 221;
+  --wiki-body-dynamic-color--secondary--inverted: #333333;
+  --wiki-body-dynamic-color--secondary--inverted--rgb: 51, 51, 51;
+
+  --wiki-content-border-color--secondary: rgba(var(--wiki-content-border-color--rgb), 0.5);
+  --wiki-content-border-color--secondary--rgb: var(--wiki-content-border-color--rgb);
+  --wiki-content-border-color--accent: rgba(var(--wiki-accent-color--rgb), 0.5);
+  --wiki-content-border-color--accent--rgb: var(--wiki-accent-color--rgb);
+  --wiki-content-link-label-color: #000;
+  --wiki-content-link-label-color--rgb: 0, 0, 0;
+  --wiki-content-dynamic-color: #ffffff;
+  --wiki-content-dynamic-color--rgb: 255, 255, 255;
+  --wiki-content-dynamic-color--inverted: #000000;
+  --wiki-content-dynamic-color--inverted--rgb: 0, 0, 0;
+  --wiki-content-dynamic-color--secondary: #dddddd;
+  --wiki-content-dynamic-color--secondary--rgb: 221, 221, 221;
+  --wiki-content-dynamic-color--secondary--inverted: #333333;
+  --wiki-content-dynamic-color--secondary--inverted--rgb: 51, 51, 51;
+  /* [ DARK THEME ] */
+  --wiki-alert-label-color: #000000;
+  --wiki-alert-label-color--rgb: 0, 0, 0;
+  --wiki-warning-label-color: #000000;
+  --wiki-warning-label-color--rgb: 0, 0, 0;
+  --wiki-success-label-color: #000000;
+  --wiki-success-label-color--rgb: 0, 0, 0;
+
+  --wiki-icon-general-filter: invert(100%);
+}
+
+/* End dark theme */
+
+/*****************************
+*     PortableInfoboxes      *
+******************************/
+:root {
+  --pi-background: var(--wiki-content-background-color);
+  --pi-secondary-background: var(--wiki-accent-color);
+  --pi-secondary-background--rgb: var(--wiki-accent-color--rgb);
+  --pi-secondary-background-label: var(--wiki-accent-label-color);
+  --pi-border-color: rgba(var(--pi-secondary-background--rgb), 0.5);
+}
+
+.portable-infobox .pi-title,
+.portable-infobox .pi-header {
+  text-align: center;
+  font-size: 1.5em;
+  background: rgba(var(--pi-secondary-background--rgb), 0.75);
+  color: var(--pi-secondary-background-label);
+}
+
+.portable-infobox .pi-data {
+  background: rgba(var(--pi-secondary-background--rgb), 0.18);
+}
+
+.portable-infobox .pi-image {
+  padding: 8px;
+}
+
+.pi-image-thumbnail {
+  max-width: 100%;
+}
+
+.pi-caption {
+  color: var(--wiki-content-text-mix-color);
+}
+
+.pi-section-navigation .pi-section-tab.pi-section-active,
+.pi-section-navigation .pi-section-tab.current,
+.pi-media-collection .pi-tab-link.current {
+  background: var(--pi-secondary-background);
+  color: var(--pi-secondary-background-label);
+}
+
+/* overqualify these to overwrite normal content heading styles */
+.mw-body .portable-infobox h2,
+.mw-body .portable-infobox h3 {
+  border-bottom: 0;
+  font-family: inherit;
+  font-weight: 700;
+  margin: 0;
+}
+
+/*****************************
+*   End PortableInfoboxes    *
+******************************/
+
+/*********************************************************************************************************************
+* Semantically-correct horizontal lists (for Module:Navbox, and they're more machine-readable than {{*}}-formatting) *
+**********************************************************************************************************************/
+.hlist dl,
+.hlist ol,
+.hlist ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Display list items inline */
+.hlist dd,
+.hlist dt,
+.hlist li {
+  /*
+	 * don't trust the note that says margin doesn't work with inline
+	 * removing margin: 0 makes dds have margins again
+	 * We also want to reset margin-right in Minerva
+	 */
+  margin: 0;
+  display: inline;
+}
+
+/* Display requested top-level lists inline */
+.hlist.inline,
+.hlist.inline dl,
+.hlist.inline ol,
+.hlist.inline ul,
+/* Display nested lists inline */
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
+  display: inline;
+}
+
+/* Hide empty list items */
+.hlist .mw-empty-li {
+  display: none;
+}
+
+/* TODO: :not() can maybe be used here to remove the later rule. naive test
+ * seems to work. more testing needed. like so: */
+.hlist dt:not(:last-child)::after {
+  content: ": ";
+}
+
+.hlist dd:not(:last-child)::after,
+.hlist li:not(:last-child)::after {
+  /* "space, Middle Dot, space"
+	We use unicode numbers instead of the raw characters due to a Firefox encoding bug on unicode characters.
+	The space is also encoded because raw spaces combined with a unicode number strips the spaces under some conditions such as single-line lists */
+  content: "\20\00B7\20";
+  font-weight: bold;
+}
+
+/* Add parentheses around nested lists */
+.hlist dd dd:first-child::before,
+.hlist dd dt:first-child::before,
+.hlist dd li:first-child::before,
+.hlist dt dd:first-child::before,
+.hlist dt dt:first-child::before,
+.hlist dt li:first-child::before,
+.hlist li dd:first-child::before,
+.hlist li dt:first-child::before,
+.hlist li li:first-child::before {
+  content: " (";
+  font-weight: normal;
+}
+
+.hlist dd dd:last-child::after,
+.hlist dd dt:last-child::after,
+.hlist dd li:last-child::after,
+.hlist dt dd:last-child::after,
+.hlist dt dt:last-child::after,
+.hlist dt li:last-child::after,
+.hlist li dd:last-child::after,
+.hlist li dt:last-child::after,
+.hlist li li:last-child::after {
+  content: ")";
+  font-weight: normal;
+}
+
+/* Put ordinals in front of ordered list items */
+.hlist ol {
+  counter-reset: listitem;
+}
+
+.hlist ol>li {
+  counter-increment: listitem;
+}
+
+.hlist ol>li::before {
+  content: " " counter(listitem) "\a0";
+}
+
+.hlist dd ol>li:first-child::before,
+.hlist dt ol>li:first-child::before,
+.hlist li ol>li:first-child::before {
+  content: " (" counter(listitem) "\a0";
+}
+
+/********************************************
+* End semantically-correct horizontal lists *
+*********************************************/
+
+/**********************************************************
+* Template:Navbox (needs semantic horizontal lists above) *
+***********************************************************/
+.navbox {
+  clear: both;
+  margin: 1em 0;
+  padding: 3px;
+  font-size: 90%;
+  width: 100%;
+  border: 1px solid var(--wiki-content-border-color);
+  box-sizing: border-box;
+}
+
+.navbox-inner,
+.navbox-subgroup {
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* Reduce spacing between adjacent navboxes */
+.navbox+.navbox {
+  margin-top: -1px;
+}
+
+/* Spacing between rows */
+.navbox-spacer {
+  height: 2px;
+}
+
+/* Title bars and labels */
+.navbox-title {
+  font-weight: bold;
+  font-size: 115%;
+  padding: 0.25em 0.6em;
+  line-height: 1.5em;
+  color: var(--wiki-accent-label-color);
+  background: var(--wiki-accent-color);
+}
+
+.navbox-title button.mw-collapsible-toggle {
+  color: var(--wiki-accent-label-color);
+}
+
+.navbox-title .mw-collapsible-toggle-default .mw-collapsible-text {
+  color: var(--wiki-accent-link-color);
+}
+
+.navbox-title,
+.navbox-abovebelow {
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+}
+
+.navbox-abovebelow,
+.navbox-group,
+.navbox-subgroup .navbox-title {
+  background: rgba(var(--wiki-accent-color--rgb), 0.18);
+  color: var(--wiki-content-text-color);
+  border: 1px solid var(--wiki-content-border-color);
+}
+
+.navbox .navbox-title a,
+.navbox .navbox-title a:visited,
+.navbox .navbox-title a.external,
+.navbox .navbox-title a.external:visited {
+  color: var(--wiki-accent-link-color);
+}
+
+.navbox .navbox-title a:hover,
+.navbox .navbox-title a:visited:hover,
+.navbox .navbox-title a.external:hover,
+.navbox .navbox-title a.external:visited:hover {
+  color: var(--wiki-accent-label-color);
+}
+
+.navbox-title .mw-collapsible-toggle {
+  font-weight: normal;
+  text-align: right;
+}
+
+.navbox-title-text {
+  font-size: 105%;
+}
+
+/* Navbox-related links */
+.navbox-title .navbar {
+  float: left;
+  margin-right: 0.5em;
+}
+
+.navbox-title .navbar a.external::after {
+  content: unset;
+}
+
+/* Groups */
+.navbox-group {
+  font-weight: bold;
+  padding: 0 0.5em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Zebra colouring for rows */
+.navbox-even {
+  background: #fff1;
+}
+
+/* Subgroups: equal group labels between different child navboxes */
+.navbox-subgroup>tbody>tr {
+  display: flex;
+}
+
+.navbox-subgroup .navbox-title {
+  width: 100%;
+}
+
+.navbox-subgroup .navbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 11em;
+  flex-grow: 1;
+  flex-shrink: 0;
+  white-space: normal;
+}
+
+/* Lists */
+.navbox-list {
+  width: 100%;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 1280px) {
+  .mw-body .navbox-inner table {
+    display: table;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .mw-body .navbox {
+    display: none;
+  }
+}
+
+/**********************
+* End Template:Navbox *
+***********************/
+
+
+/*******************
+* Main page layout *
+********************/
+
+#mp-container {
+  display: grid;
+  /* for mobile screens */
+  grid-template-areas: var(--main-page-layout--mobile);
+  grid-template-columns: var(--main-page-layout-columns--mobile, 100%);
+  gap: 10px;
+}
+
+@media screen and (min-width:990px) {
+  #mp-container {
+    /* for narrow screens, between 990px and 1350px */
+    grid-template-areas: var(--main-page-layout--tablet);
+    grid-template-columns: var(--main-page-layout-columns--tablet, 1fr 1fr);
+  }
+}
+
+@media screen and (min-width:1350px) {
+  #mp-container {
+    grid-template-areas: var(--main-page-layout--desktop);
+    grid-template-columns: var(--main-page-layout-columns--desktop, 2fr 1fr 2fr);
+  }
+}
+
+.mp-box {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: calc(100% - 2px);
+  box-sizing: border-box;
+  background: rgba(var(--wiki-content-background-color--secondary--rgb), 0.25);
+  border: 1px solid var(--wiki-content-border-color);
+  padding: 0px;
+}
+
+.mp-body {
+  height: 100%;
+  display: flex;
+  padding: 0.5em;
+  flex-flow: column nowrap;
+}
+
+.mp-box.centered-content .mp-body {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+
+.mp-box.has-floating-image {
+  display: block;
+}
+
+.mp-box.has-floating-image .mp-body {
+  height: unset;
+  display: block;
+}
+
+.mp-box h2 {
+  text-align: center;
+  font-weight: bold;
+  font-family: var(--wiki-heading-font-family);
+  overflow: initial;
+  border-bottom: 1px solid var(--wiki-content-border-color);
+  font-size: 150%;
+  margin: 0;
+  padding: 5px 0;
+  color: var(--wiki-heading-color);
+}
+
+.mp-box .welcome-message {
+  font-size: 200%;
+  font-family: var(--wiki-heading-font-family);
+  margin: 0;
+  padding: 5px 0;
+  color: #fff;
+  filter: drop-shadow(0px 2px 3px #000);
+}
+
+#mp-box-welcome {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#mp-welcome {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  height: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+#mp-welcome .welcome-subtitle {
+  height: 100%;
+  background: rgba(var(--wiki-content-dynamic-color--inverted--rgb), 0.85);
+  padding: 0.5em;
+}
+
+#mp-banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  z-index: -1;
+  background: url(/images/e/e0/MP_banner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.view-dark #mp-banner {
+  filter: blur(5px) brightness(50%);
+}
+
+.view-light #mp-banner {
+  filter: blur(5px) contrast(50%);
+}
+
+/* [[Template:MP_link]] */
+.mp-links {
+  --gap: 10px;
+}
+
+.mp-links>ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 2px;
+  gap: var(--gap);
+}
+
+.mp-links>ul>li {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  text-align: center;
+  box-sizing: border-box;
+  flex: max(calc(50% - var(--gap)), 5em) 1 1;
+  outline: 1px solid var(--wiki-content-link-color);
+  transition: 0.1s ease-in;
+}
+
+.mp-links>ul>li:hover {
+  background-color: rgba(var(--wiki-content-link-color--rgb), 0.2);
+}
+
+.mp-links.columns-1>ul>li {
+  flex: max(calc(100% - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-2>ul>li {
+  flex: max(calc(50% - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-3>ul>li {
+  flex: max(calc((100% / 3) - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-4>ul>li {
+  flex: max(calc(25% - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-5>ul>li {
+  flex: max(calc(20% - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-6>ul>li {
+  flex: max(calc((100% / 6) - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-7>ul>li {
+  flex: max(calc((100% / 7) - var(--gap)), 5em) 1 1;
+}
+
+.mp-links.columns-max>ul>li {
+  flex: max(calc(0% - var(--gap)), 5em) 1 1;
+}
+
+.mp-links>ul>li:hover a {
+  text-decoration: underline;
+}
+
+.mp-links>ul>li>a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.mp-links>ul>li>a:first-child {
+  height: 100%;
+}
+
+.mp-links>ul>li>a:last-child:not(:first-child) {
+  height: unset;
+}
+
+.mp-links.stretch,
+.mp-links.stretch>ul {
+  height: 100%;
+}
+
+.mp-links.side-image li {
+  flex-flow: row nowrap;
+}
+
+.mp-links.plain>ul>li {
+  outline-color: transparent;
+}
+
+/* MP icon lists */
+.mp-iconlists {
+  display: flex;
+  flex-flow: wrap;
+  gap: 5px 20px;
+}
+
+.mp-iconlists>.mp-iconlist {
+  flex: 1;
+  min-width: fit-content;
+}
+
+.mp-iconlist>h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.mp-iconlist>ul {
+  list-style: none;
+  margin: 0;
+}
+
+/* MP gallery */
+.mp-box ul.gallery.gallery.gallery {
+  /* this selector looks ridiculous but is actually part of stock Vector and therefore a necessary override */
+  display: flex;
+  flex-flow: wrap;
+  gap: 5px 10px;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.mp-box ul.gallery .gallerytext {
+  margin-top: 1em;
+  padding: 0;
+  background-color: var(--wiki-content-background-color--secondary);
+  border: 1px solid var(--wiki-content-link-color);
+}
+
+.mp-box .gallerybox:hover .gallerytext {
+  background-color: rgba(var(--wiki-content-link-color--rgb), 0.2);
+}
+
+.mp-box ul.gallery .gallerytext>p {
+  margin: 0;
+}
+
+.mp-box ul.gallery .gallerytext a {
+  display: block;
+  padding: .5em 0;
+}
+
+/***********************
+* End main page layout *
+************************/
+
+/****************************************/
+/*******  Start DRUID CSS rules *********/
+/****************************************/
+
+.druid-container {
+  /* These variables are designed to inherit from your wiki's color variables.
+       If your wiki uses a different naming scheme, change the inner names to match yours.
+       If your wiki doesn't use color variables you should consider doing so,
+       otherwise you can replace the inner variables or the fallback values with colors that match your wiki.
+    */
+  --druid-background-color: var(--wiki-content-background-color, #ffffff);
+  --druid-background-color--rgb: var(--wiki-content-background-color--rgb, 255, 255, 255);
+
+  --druid-secondary-background-color: var(--wiki-accent-color, #36c);
+  --druid-secondary-background-color--rgb: var(--wiki-accent-color--rgb, 51, 102, 204);
+  --druid-secondary-background-label-color: var(--wiki-accent-label-color, #fff);
+  --druid-secondary-background-label-color--rgb: var(--wiki-accent-label-color--rgb, 255, 255, 255);
+
+  --druid-tertiary-background-color: var(--wiki-content-background-color--secondary, #eaecf0);
+  --druid-tertiary-background-color--rgb: var(--wiki-content-background-color--secondary--rgb, 234, 236, 240);
+
+  --druid-border-color: var(--wiki-content-border-color, #a7d7f9);
+  --druid-border-color--rgb: var(--wiki-content-border-color--rgb, 167, 215, 249);
+
+  --druid-link-color: var(--wiki-content-link-color, #0645ad);
+  --druid-link-color--rgb: var(--wiki-content-link-color--rgb, 6, 69, 173);
+  --druid-link-label-color: var(--wiki-content-link-label-color, #fff);
+  --druid-link-label-color--rgb: var(--wiki-content-link-label-color--rgb, 255, 255, 255);
+}
+
+/* ---------------------------------  */
+/*    Safe to edit ABOVE this line    */
+/* ---------------------------------  */
+
+/* ---------------------------------  */
+/*     Do not edit below this line    */
+/* ---------------------------------  */
+
+.druid-container {
+  border: 4px solid var(--druid-border-color);
+  border-radius: 3px;
+  background: var(--druid-background-color);
+  float: right;
+  clear: right;
+  margin: 0 0 1em 1em;
+  width: 100%;
+  max-width: 22em;
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+
+@media screen and (max-width: 720px) {
+  .druid-container {
+    float: none;
+    margin: 0.5rem auto;
+  }
+}
+
+.druid-main-images-file,
+.druid-main-image {
+  text-align: center;
+}
+
+.druid-infobox .druid-title,
+.druid-infobox .druid-section {
+  background: rgba(var(--druid-secondary-background-color--rgb), 0.75);
+  color: var(--druid-secondary-background-label-color);
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1px;
+}
+
+.druid-infobox .druid-section {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.druid-infobox .druid-collapsible .druid-section {
+  flex-grow: 1;
+}
+
+.druid-label {
+  font-weight: bold;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.druid-row>.druid-label {
+  width: 48%;
+  flex-shrink: 0;
+}
+
+.druid-row>.druid-label,
+.druid-row>.druid-data {
+  padding-inline: 0.3em;
+}
+
+.druid-main-image,
+.druid-main-images {
+  padding: 5px;
+}
+
+.druid-main-image img,
+.druid-main-images img {
+  max-width: 100%;
+  height: auto;
+}
+
+.druid-main-images-labels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0.25em;
+  gap: 0.25em;
+}
+
+.druid-main-images-label {
+  cursor: pointer;
+  flex: 1 1 auto;
+  text-align: center;
+  transition: .1s ease-in;
+  outline: 1px solid var(--druid-link-color);
+}
+
+.druid-main-images-label.focused {
+  background: var(--druid-link-color);
+  color: var(--druid-link-label-color);
+}
+
+.druid-main-images-label:not(.focused):hover {
+  background: rgba(var(--druid-link-color--rgb), 0.25);
+}
+
+.druid-toggleable-data:not(.focused),
+.druid-main-images-file:not(.focused),
+.druid-toggleable-heading:not(.focused) {
+  display: none;
+}
+
+.druid-row:not(:has(.druid-grid)):has(.druid-toggleable-data-empty.focused) {
+  display: none;
+}
+
+.druid-section:has(.druid-toggleable-heading-empty.focused) {
+  display: none;
+}
+
+.druid-grid {
+  display: grid;
+  gap: 0.3em;
+  padding: 0.35em;
+}
+
+.druid-grid-item {
+  background: var(--druid-tertiary-background-color);
+  padding: 0.25em;
+  border: 1px solid rgba(var(--druid-border-color--rgb), 0.5);
+  border-radius: 2px;
+}
+
+.druid-grid-item .druid-label,
+.druid-grid-item .druid-data {
+  text-align: center;
+}
+
+.druid-data-wide {
+  width: 100%;
+}
+
+.druid-section-container>.druid-collapsible {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.druid-collapsed {
+  display: none !important;
+}
+
+.druid-collapsible {
+  cursor: pointer;
+  position: relative;
+}
+
+.druid-collapsible::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctitle%3E collapse %3C/title%3E%3Cpath d='M1 13.75l1.5 1.5 7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z'/%3E%3C/svg%3E") no-repeat;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  background-color: var(--druid-secondary-background-label-color);
+}
+
+.druid-collapsible-collapsed::after {
+  transform: rotate(180deg);
+}
+
+.druid-section-container:has(.druid-toggleable-data-empty.focused):not(:has(.druid-toggleable-data-nonempty.focused)):not(:has(.druid-data-nonempty)) {
+  display: none;
+}
+
+/*****************************************
+Div support
+*****************************************/
+
+div.druid-row {
+  display: flex;
+  margin-block: 1px;
+}
+
+div.druid-row+div.druid-row {
+  margin-top: 0;
+}
+
+div.druid-row>.druid-label {
+  background: var(--druid-tertiary-background-color);
+}
+
+.druid-infobox .druid-title {
+  font-weight: 700;
+}
+
+.druid-infobox #toc {
+  display: none;
+}
+
+
+/********
+Custom display classes
+*********/
+
+div.druid-stacked.druid-row,
+.druid-stacked div.druid-row {
+  flex-direction: column;
+}
+
+.druid-stacked.druid-row>.druid-label,
+.druid-stacked .druid-row>.druid-label {
+  text-align: left;
+  width: 100%;
+  flex-basis: unset;
+}
+
+.druid-stacked.druid-row>.druid-data,
+.druid-stacked .druid-row>.druid-data {
+  padding-left: .75em;
+}
+
+/* ---------------------------------  */
+/*    Do not edit above this line     */
+/* ---------------------------------  */
+
+/* ---------------------------------  */
+/* Local overrides go below this line */
+/* ---------------------------------  */
+
+
+/****************************************/
+/*******  End DRUID CSS rules   *********/
+/****************************************/
+
+/*** Miscellaneous ***/
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.view-dark .invert-on-dark,
+.view-light .invert-on-light {
+  filter: invert(100%);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+@media screen and (min-width:720px) {
+  .mobileonly {
+    display: none;
+  }
+}
+
+@media screen and (max-width:720px) {
+  .nomobile {
+    display: none;
+  }
+}
+
+/*** Utility classes for standard MW galleries ***/
+/* it's important that spaced comes before centered in the sheet */
+.gallery.gallery.gallery.spaced {
+  /* this selector looks ridiculous but is actually part of stock Vector and therefore a necessary override */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin-left: unset;
+}
+
+.gallery.centered {
+  text-align: center;
+}
+
+/**************************
+* Start Modular Templates *
+**************************/
+
+/********* [[Template:Ambox]] *********/
+.ambox {
+  --ambox-color: var(--wiki-accent-color);
+
+  border: 1px solid var(--wiki-content-border-color);
+  border-left: 10px solid var(--ambox-color);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  margin: 1em 0;
+  padding: 3px .6em;
+  background-color: var(--wiki-content-background-color--secondary);
+  box-shadow: 2px 2px 5px 0px #0002;
+}
+
+@media (min-width: 720px) {
+  .ambox {
+    margin-inline: 10%;
+  }
+}
+
+.ambox.tiny {
+  padding: .04rem .5em;
+  margin-inline: 0;
+  width: fit-content;
+}
+
+.ambox+.ambox {
+  margin-top: -.6em;
+}
+
+.ambox-content p {
+  margin: .15em 0;
+}
+
+.ambox-title {
+  font-weight: bold;
+}
+
+/********* [[Template:Hatnote]] *********/
+.hatnote {
+  padding: 1px 0 1px 1.6em;
+  margin-bottom: 0.5em;
+  font-style: italic;
+  border-top: 1px solid var(--wiki-content-border-color--secondary);
+  border-bottom: 1px solid var(--wiki-content-border-color--secondary);
+}
+
+.hatnote.icon {
+  padding-left: 0;
+}
+
+/********* [[Template:Spoiler]] *********/
+.spoiler-content {
+  background-color: rgb(127, 127, 127);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.spoiler-content>span {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.spoiler-content>* {
+  pointer-events: none;
+}
+
+.spoiler-content.show>* {
+  pointer-events: unset;
+}
+
+.spoiler-content.show {
+  background-color: rgba(127, 127, 127, 0);
+}
+
+.spoiler-content.show>span {
+  opacity: 1;
+}
+
+/********* [[Template:Link icon]] *********/
+.link-icon {
+  --link-icon-line-height: 1.5em;
+  --link-icon-size: 1.5em;
+  display: inline-flex;
+  align-items: center;
+  height: var(--link-icon-line-height);
+  vertical-align: bottom;
+}
+
+.link-icon .regular {
+  align-self: center;
+}
+
+.link-icon .regular a {
+  display: flex;
+}
+
+.link-icon .regular img {
+  height: var(--link-icon-size);
+  max-width: var(--link-icon-size);
+}
+
+.link-icon .fallback {
+  outline: 1px solid var(--wiki-content-text-color);
+  border-radius: 50%;
+  text-align: center;
+  width: var(--link-icon-size);
+  line-height: var(--link-icon-size);
+}
+
+.link-icon.notext .fallback {
+  display: inline-block;
+}
+
+.link-icon.notext {
+  display: inline;
+}
+
+/********* [[Template:Quote]] *********/
+.quote {
+  background: var(--wiki-content-background-color--secondary);
+  border-radius: 5px;
+  border: 2px solid var(--wiki-content-border-color);
+  margin: .5em 0;
+  padding: .5em;
+  overflow-y: hidden;
+}
+
+.quote .block {
+  display: block;
+}
+
+.quote .title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.quote .content {
+  font-style: italic;
+}
+
+.quote .author {
+  font-weight: bold;
+  text-align: end;
+}
+
+.quote .marks-wrapper {
+  display: flex;
+  gap: 5px;
+}
+
+.quote .marks-wrapper::before,
+.quote .marks-wrapper::after {
+  font-size: 100px;
+  line-height: 0px;
+}
+
+.quote .marks-wrapper::before {
+  content: "\201C";
+  margin-top: 40px;
+}
+
+.quote .marks-wrapper::after {
+  content: "\201D";
+  align-self: end;
+  margin-bottom: -10px;
+}
+
+.client-js .mw-charinsert-item {
+  display: none;
+}
+
+/************************
+* End Modular Templates *
+*************************/
+
+/*****************************
+* Used by [[Template:Color]] *
+******************************/
+.color__splotch {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  box-sizing: border-box;
+  vertical-align: text-top;
+  border-radius: 50%;
+  border: 1px solid var(--wiki-content-text-color);
+}
+
+/*********************
+* End Template:Color *
+**********************/
