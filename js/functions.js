@@ -24,20 +24,3 @@ function integerExtraction(string) {
   return extractedNumber;
 }
 
-
-console.log(stringCheck('проверяемая строка', 20));
-console.log(stringCheck('проверяемая строка', 18));
-console.log(stringCheck('проверяемая строка', 10));
-
-
-console.log(isPalindrome('топот'));
-
-console.log(integerExtraction('2023 год'));
-console.log(integerExtraction('ECMAScript 2022'));
-console.log(integerExtraction('1 кефир, 0.5 батона'));
-console.log(integerExtraction('агент 007'));
-console.log(integerExtraction('а я томат'));
-console.log(integerExtraction(2023));
-console.log(integerExtraction(-1));
-console.log(integerExtraction(1.5));
-
