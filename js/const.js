@@ -33,6 +33,16 @@ const COMMENTS = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const PHOTOS_COUNT = 25;
+const RangesOfIntegers = {
+  MIN_ID: 1,
+  MAX_ID: 25,
+  MIN_LIKES: 15,
+  MAX_LIKES: 200,
+  MIN_COMENTS: 0,
+  MAX_COMENTS: 30,
+  MAX_AVATARS: 6,
+  MIN_COMMNET_ID: 1,
+  MAX_COMMNET_ID: 500
+};
 
-export { DESCRIPTIONS, NAMES, COMMENTS, PHOTOS_COUNT };
+export { DESCRIPTIONS, NAMES, COMMENTS, RangesOfIntegers };

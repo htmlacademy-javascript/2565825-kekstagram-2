@@ -1,5 +1,4 @@
-import { createPhoto } from './data.js';
-import { PHOTOS_COUNT } from './const.js';
+import { photosRendering } from './rendering-images.js';
 
-createPhoto(PHOTOS_COUNT);
+photosRendering();
 
