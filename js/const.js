@@ -42,7 +42,8 @@ const RangesOfIntegers = {
   MAX_COMENTS: 30,
   MAX_AVATARS: 6,
   MIN_COMMNET_ID: 1,
-  MAX_COMMNET_ID: 500
+  MAX_COMMNET_ID: 500,
+  COMMENTS_PER_PAGE: 5
 };
 
 export { DESCRIPTIONS, NAMES, COMMENTS, RangesOfIntegers };
