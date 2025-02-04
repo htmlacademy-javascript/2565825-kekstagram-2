@@ -1,3 +1,1 @@
-import { photosRendering } from './rendering-images.js';
-
-photosRendering();
+import { } from './rendering-images.js';
