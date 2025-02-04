@@ -4,7 +4,7 @@ import { DESCRIPTIONS, NAMES, COMMENTS, RangesOfIntegers } from './const.js';
 //Функция для создания комментария
 const createComment = () => ({
   id: getRandomInteger(RangesOfIntegers.MIN_COMMNET_ID, RangesOfIntegers.MAX_COMMNET_ID),
-  avatar: `img/avatar-${getRandomInteger(RangesOfIntegers.MIN_ID, RangesOfIntegers.MAX_ID)}.svg`,
+  avatar: `img/avatar-${getRandomInteger(RangesOfIntegers.MIN_ID, RangesOfIntegers.MAX_AVATARS)}.svg`,
   message: Array.from({ length: 1 }, () => getRandomArrayElement(COMMENTS)).join(' '),
   name: getRandomArrayElement(NAMES)
 });
