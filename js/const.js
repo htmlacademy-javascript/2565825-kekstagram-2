@@ -10,7 +10,6 @@ const DESCRIPTIONS = [
   'Весенние цветы',
   'Пустынный пейзаж'
 ];
-
 const NAMES = [
   'Анна',
   'Дмитрий',
@@ -23,7 +22,6 @@ const NAMES = [
   'Светлана',
   'Татьяна'
 ];
-
 const COMMENTS = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -32,7 +30,6 @@ const COMMENTS = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
-
 const RangesOfIntegers = {
   MIN_ID: 1,
   MAX_ID: 25,
@@ -43,7 +40,10 @@ const RangesOfIntegers = {
   MAX_AVATARS: 6,
   MIN_COMMNET_ID: 1,
   MAX_COMMNET_ID: 500,
-  COMMENTS_PER_PAGE: 5
+  COMMENTS_PER_PAGE: 5,
+  MAX_COMMENT_SYBMOLS: 140,
+  MAX_SYMBOLS: 20,
+  MAX_HASHTAGS: 5
 };
 
 export { DESCRIPTIONS, NAMES, COMMENTS, RangesOfIntegers };

@@ -1,1 +1,2 @@
-import { } from './rendering-images.js';
+import './rendering-images.js';
+import './form-validator.js';

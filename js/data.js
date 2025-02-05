@@ -8,7 +8,6 @@ const createComment = () => ({
   message: Array.from({ length: 1 }, () => getRandomArrayElement(COMMENTS)).join(' '),
   name: getRandomArrayElement(NAMES)
 });
-
 //Функция для создания фото
 function createPhoto(counter) {
   const getImageId = createRandomId(RangesOfIntegers.MIN_ID, RangesOfIntegers.MAX_ID);
@@ -21,7 +20,6 @@ function createPhoto(counter) {
     likes: getRandomInteger(RangesOfIntegers.MIN_LIKES, RangesOfIntegers.MAX_LIKES),
     comments: Array.from({ length: getRandomInteger(RangesOfIntegers.MIN_COMENTS, RangesOfIntegers.MAX_COMENTS) }, createComment)
   });
-
   const arrayOfPhotos = Array.from({ length: counter }, photo);
   return arrayOfPhotos;
 }
