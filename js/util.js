@@ -4,6 +4,7 @@ const getRandomInteger = (min, max) => {
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
+
 //Функция для создания случайного уникального ID
 function createRandomId(min, max) {
   const previousValues = [];
