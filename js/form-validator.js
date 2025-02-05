@@ -1,6 +1,6 @@
-import { RangesOfIntegers } from './const.js';
+import { PHOTO_CONSTS } from './const.js';
 
-const { MAX_COMMENT_SYBMOLS, MAX_SYMBOLS, MAX_HASHTAGS } = RangesOfIntegers;
+const { MAX_COMMENT_SYBMOLS, MAX_SYMBOLS, MAX_HASHTAGS } = PHOTO_CONSTS;
 
 const uploadForm = document.querySelector('.img-upload__form');
 const body = document.querySelector('body');
@@ -43,6 +43,7 @@ const hashtagRules = [
     error: `Нельзя указать больше ${MAX_HASHTAGS} хэштегов`,
   },
 ];
+
 // Функция валидации хэштегов
 const validateHashtags = (value) => {
   if (!value.trim()) {
@@ -51,6 +52,7 @@ const validateHashtags = (value) => {
   const inputArray = value.trim().toLowerCase().split(/\s+/);
   return hashtagRules.every((rule) => rule.check(inputArray));
 };
+
 // Функция получения текста ошибки
 const getHashtagsError = (value) => {
   if (!value.trim()) {
@@ -64,6 +66,7 @@ const getHashtagsError = (value) => {
   }
   return '';
 };
+
 // Правило для валидации комментария
 const validateDescription = (value) => value.length <= MAX_COMMENT_SYBMOLS;
 const getDescriptionError = () =>
@@ -76,6 +79,7 @@ const openEditForm = () => {
   closeButton.addEventListener('click', closeEditForm);
   document.addEventListener('keydown', onEscKeyPress);
 };
+
 // Закрытие формы редактирования
 function closeEditForm() {
   uploadOverlay.classList.add('hidden');
@@ -85,6 +89,7 @@ function closeEditForm() {
   closeButton.removeEventListener('click', closeEditForm);
   document.removeEventListener('keydown', onEscKeyPress);
 }
+
 // Закрытие формы при нажатии Escape
 function onEscKeyPress(evt) {
   if (evt.key === 'Escape' &&
@@ -94,6 +99,7 @@ function onEscKeyPress(evt) {
     closeEditForm();
   }
 }
+
 // Отключение обработки Escape при фокусе на полях ввода
 [hashtagsInput, descriptionInput].forEach((input) => {
   input.addEventListener('keydown', (evt) => {
@@ -102,10 +108,12 @@ function onEscKeyPress(evt) {
     }
   });
 });
+
 // Открытие формы при выборе файла
 uploadInput.addEventListener('change', () => {
   openEditForm();
 });
+
 // Обработчик отправки формы
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();

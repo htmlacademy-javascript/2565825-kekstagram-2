@@ -1,12 +1,12 @@
 import { createPhoto } from './data.js';
-import { RangesOfIntegers } from './const.js';
+import { PHOTO_CONSTS } from './const.js';
 import { openBigPicture } from './fullScreenViewer.js';
 
 const photoGallery = document.querySelector('.pictures');
 const photosTemplate = document.querySelector('#picture')
   .content
   .querySelector('.picture');
-const photos = createPhoto(RangesOfIntegers.MAX_ID);
+const photos = createPhoto(PHOTO_CONSTS.MAX_ID);
 
 const photoGenerated = document.createDocumentFragment();
 
