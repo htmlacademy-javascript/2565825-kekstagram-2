@@ -21,7 +21,6 @@ photos.forEach((photo) => {
   element.dataset.id = id;
   photoGenerated.appendChild(element);
 
-
   element.addEventListener('click', () => {
     openBigPicture(photo);
   });
