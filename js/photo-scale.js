@@ -31,3 +31,11 @@ scaleControlBigger.addEventListener('click', () => {
     changeScale();
   }
 });
+
+//Сброс масштаба
+const resetScale = () => {
+  currentScale = DEFAULT_SCALE_VALUE;
+  changeScale();
+};
+
+export { resetScale };

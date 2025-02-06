@@ -1,4 +1,7 @@
 import { PHOTO_CONSTS } from './const.js';
+import { resetFilters } from './effects-slider.js';
+import { resetScale } from './photo-scale.js';
+import { sendData } from './api.js';
 
 const { MAX_COMMENT_SYBMOLS, MAX_SYMBOLS, MAX_HASHTAGS } = PHOTO_CONSTS;
 
@@ -9,11 +12,14 @@ const uploadOverlay = document.querySelector('.img-upload__overlay');
 const closeButton = document.querySelector('.img-upload__cancel');
 const hashtagsInput = document.querySelector('.text__hashtags');
 const descriptionInput = document.querySelector('.text__description');
+const SUCCESS_TEMPLATE = document.querySelector('#success').content.querySelector('.success');
+const ERROR_TEMPLATE = document.querySelector('#error').content.querySelector('.error');
 
 const pristine = new Pristine(uploadForm, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper',
   errorTextClass: 'pristine-error',
+  errorClass: 'img-upload__field-wrapper--error',
 });
 
 // Правила валидации хэштегов
@@ -58,12 +64,14 @@ const getHashtagsError = (value) => {
   if (!value.trim()) {
     return '';
   }
+
   const inputArray = value.trim().toLowerCase().split(/\s+/);
   for (const rule of hashtagRules) {
     if (!rule.check(inputArray)) {
       return rule.error;
     }
   }
+
   return '';
 };
 
@@ -86,6 +94,8 @@ function closeEditForm() {
   body.classList.remove('modal-open');
   uploadForm.reset();
   pristine.reset();
+  resetFilters();
+  resetScale();
   closeButton.removeEventListener('click', closeEditForm);
   document.removeEventListener('keydown', onEscKeyPress);
 }
@@ -100,25 +110,52 @@ function onEscKeyPress(evt) {
   }
 }
 
-// Отключение обработки Escape при фокусе на полях ввода
-[hashtagsInput, descriptionInput].forEach((input) => {
-  input.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      evt.stopPropagation();
-    }
-  });
-});
+const showMessage = (template) => {
+  const message = template.cloneNode(true);
+  document.body.appendChild(message);
 
-// Открытие формы при выборе файла
-uploadInput.addEventListener('change', () => {
-  openEditForm();
-});
+  const removeMessage = () => {
+    message.remove();
+    document.removeEventListener('keydown', onEscKeyPress);
+    document.removeEventListener('click', onOutsideClick);
+  };
+
+  function onOutsideClick(evt) {
+    if (evt.target === message) {
+      removeMessage();
+    }
+  }
+
+  if (message.querySelector('button')) {
+    (message.querySelector('button')).addEventListener('click', removeMessage);
+  }
+
+  document.addEventListener('keydown', onEscKeyPress);
+  document.addEventListener('click', onOutsideClick);
+};
 
 // Обработчик отправки формы
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (isValid) {
-    uploadForm.submit();
+    const formData = new FormData(uploadForm);
+    sendData(formData)
+      .then(() => {
+        closeEditForm();
+        showMessage(SUCCESS_TEMPLATE);
+      })
+      .catch(() => {
+        showMessage(ERROR_TEMPLATE);
+      });
   }
+});
+
+uploadForm.addEventListener('reset', () => {
+  closeEditForm();
+});
+
+// Открытие формы при выборе файла
+uploadInput.addEventListener('change', () => {
+  openEditForm();
 });

@@ -1,30 +1,35 @@
-import { createPhoto } from './data.js';
-import { PHOTO_CONSTS } from './const.js';
 import { openBigPicture } from './fullScreenViewer.js';
 
-const photoGallery = document.querySelector('.pictures');
-const photosTemplate = document.querySelector('#picture')
-  .content
-  .querySelector('.picture');
-const photos = createPhoto(PHOTO_CONSTS.MAX_ID);
+const picturesContainer = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const errorTemplate = document.querySelector('#data-error').content.querySelector('.data-error');
 
-const photoGenerated = document.createDocumentFragment();
+const renderImages = (photos) => {
+  const fragment = document.createDocumentFragment();
 
-photos.forEach((photo) => {
-  const { id, url, description, likes, comments } = photo;
+  photos.forEach(({ url, likes, comments }) => {
+    const pictureElement = pictureTemplate.cloneNode(true);
+    pictureElement.querySelector('.picture__img').src = url;
+    pictureElement.querySelector('.picture__likes').textContent = likes;
+    pictureElement.querySelector('.picture__comments').textContent = comments.length;
 
-  const element = photosTemplate.cloneNode(true);
-  element.querySelector('.picture__img').src = url;
-  element.querySelector('.picture__img').alt = description;
-  element.querySelector('.picture__likes').textContent = likes;
-  element.querySelector('.picture__comments').textContent = comments.length;
-  element.dataset.id = id;
-  photoGenerated.appendChild(element);
+    pictureElement.addEventListener('click', () => {
+      openBigPicture({ url, likes, comments });
+    });
 
-  element.addEventListener('click', () => {
-    openBigPicture(photo);
+    fragment.appendChild(pictureElement);
   });
-});
-photoGallery.appendChild(photoGenerated);
 
-export { photoGallery, photos };
+  picturesContainer.appendChild(fragment);
+};
+
+const showErrorMessage = () => {
+  const errorElement = errorTemplate.cloneNode(true);
+  document.body.appendChild(errorElement);
+
+  setTimeout(() => {
+    errorElement.remove();
+  }, 5000);
+};
+
+export { renderImages, showErrorMessage };
