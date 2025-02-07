@@ -21,6 +21,15 @@ function createRandomId(min, max) {
     return currentValue;
   };
 }
+
+const debounce = (callback, timeoutDelay = 500) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-export { getRandomInteger, createRandomId, getRandomArrayElement };
+export { getRandomInteger, createRandomId, getRandomArrayElement, debounce };
