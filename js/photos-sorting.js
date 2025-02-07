@@ -10,19 +10,21 @@ let photos = [];
 
 // Функция рендеринга изображений с учетом фильтра
 const applyFilter = (filter) => {
-  let filteredPhotos = photos;
+  let filteredPhotos = photos.slice();
+
   switch (filter) {
     case 'random':
-      filteredPhotos = photos
+      filteredPhotos = photos.slice()
         .sort(() => Math.random() - 0.5)
         .slice(0, MAX_PHOTO_COUNT);
       break;
     case 'discussed':
-      filteredPhotos = photos.sort((a, b) => b.comments.length - a.comments.length);
+      filteredPhotos = photos.slice().sort((a, b) => b.comments.length - a.comments.length);
       break;
     default:
       break;
   }
+
   renderImages(filteredPhotos);
 };
 
@@ -34,7 +36,8 @@ const debouncedFilter = debounce((filter) => {
 // Добавляем обработчики событий на фильтры
 const picturesSorting = (loadedPhotos) => {
   photos = loadedPhotos;
-  imgFilters.classList.remove('img-filters--inactive'); // Показываем фильтры
+  imgFilters.classList.remove('img-filters--inactive');
+
   imgFilters.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('img-filters__button')) {
       filterButtons.forEach((btn) => btn.classList.remove('img-filters__button--active'));
