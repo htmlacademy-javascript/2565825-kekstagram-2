@@ -4,7 +4,12 @@ const picturesContainer = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const errorTemplate = document.querySelector('#data-error').content.querySelector('.data-error');
 
+const clearImages = () => {
+  picturesContainer.querySelectorAll('.picture').forEach((picture) => picture.remove());
+};
+
 const renderImages = (photos) => {
+  clearImages();
   const fragment = document.createDocumentFragment();
 
   photos.forEach(({ url, likes, comments }) => {
