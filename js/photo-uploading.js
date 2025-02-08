@@ -23,9 +23,11 @@ const onFileInputChange = () => {
 
   const fileURL = URL.createObjectURL(file);
   imgPreview.src = fileURL;
+
   effectPreviews.forEach((preview) => {
     preview.style.backgroundImage = `url(${fileURL})`;
   });
+
   openEditForm();
 };
 

@@ -1,6 +1,6 @@
 import { getRandomInteger, createRandomId, getRandomArrayElement } from './util.js';
-import { DESCRIPTIONS, NAMES, COMMENTS, PHOTO_CONSTS } from './const.js';
-const { MIN_COMMNET_ID, MAX_COMMNET_ID, MIN_ID, MAX_ID, MAX_AVATARS, MIN_LIKES, MAX_LIKES, MIN_COMENTS, MAX_COMENTS } = PHOTO_CONSTS;
+import { DESCRIPTIONS, NAMES, COMMENTS, PhotoConsts } from './const.js';
+const { MIN_COMMNET_ID, MAX_COMMNET_ID, MIN_ID, MAX_ID, MAX_AVATARS, MIN_LIKES, MAX_LIKES, MIN_COMENTS, MAX_COMENTS } = PhotoConsts;
 
 //Функция для создания комментария
 const createComment = () => ({

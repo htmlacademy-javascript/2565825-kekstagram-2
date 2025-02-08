@@ -1,11 +1,13 @@
 import { renderImages } from './rendering-images.js';
 import { debounce } from './util.js';
+import { PhotoConsts } from './const.js';
+
+const { MAX_PHOTO_COUNT, DEBOUNCE_DELAY } = PhotoConsts;
 
 const imgFilters = document.querySelector('.img-filters');
 const filterButtons = document.querySelectorAll('.img-filters__button');
 
-const MAX_PHOTO_COUNT = 10;
-const DEBOUNCE_DELAY = 500;
+
 let photos = [];
 
 // Функция рендеринга изображений с учетом фильтра
