@@ -1,6 +1,7 @@
-import { EFFECTS, PHOTO_CONSTS } from './const.js';
+import { effects, PhotoConsts } from './const.js';
+import { getInteger } from './util.js';
 
-const { DEFAULT_SLIDER_VALUE, MIN_SLIDER_VALUE, MAX_SLIDER_VALUE, SLIDER_STEP } = PHOTO_CONSTS;
+const { DEFAULT_SLIDER_VALUE, MIN_SLIDER_VALUE, MAX_SLIDER_VALUE, SLIDER_STEP } = PhotoConsts;
 
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectValue = document.querySelector('.effect-level__value');
@@ -24,13 +25,14 @@ const changeFilter = (filter) => {
     case 'phobos':
       return `blur(${effectValue.value}px)`;
     default:
-      return `${EFFECTS[filter].filter}(${effectValue.value})`;
+      return `${effects[filter].filter}(${effectValue.value})`;
   }
 };
 
 sliderElement.noUiSlider.on('update', () => {
-  effectValue.value = sliderElement.noUiSlider.get();
+  effectValue.value = getInteger(sliderElement.noUiSlider.get());
   picturePreview.style.filter = changeFilter(currentFilter);
+
   if (currentFilter === 'default') {
     container.classList.add('visually-hidden');
   }
@@ -44,7 +46,7 @@ effectList.addEventListener('change', (evt) => {
     container.classList.add('visually-hidden');
   } else {
     container.classList.remove('visually-hidden');
-    sliderElement.noUiSlider.updateOptions(EFFECTS[clickedElement.value].effectsSlider);
+    sliderElement.noUiSlider.updateOptions(effects[clickedElement.value].effectsSlider);
   }
 });
 

@@ -1,6 +1,6 @@
-import { PHOTO_CONSTS } from './const.js';
+import { PhotoConsts } from './const.js';
 
-const { SCALE_STEP_VALUE, SCALE_MIN_VALUE, SCALE_MAX_VALUE, DEFAULT_SCALE_VALUE } = PHOTO_CONSTS;
+const { SCALE_STEP_VALUE, SCALE_MIN_VALUE, SCALE_MAX_VALUE, DEFAULT_SCALE_VALUE } = PhotoConsts;
 
 const scaleControlSmaller = document.querySelector('.scale__control--smaller');
 const scaleControlBigger = document.querySelector('.scale__control--bigger');

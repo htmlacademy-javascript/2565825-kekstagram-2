@@ -1,4 +1,4 @@
-import { PHOTO_CONSTS } from './const.js';
+import { PhotoConsts } from './const.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
@@ -45,7 +45,7 @@ const renderComments = (comments) => {
 
 // Функция для показа следующей порции комментариев
 const showMoreComments = () => {
-  const remainingComments = currentComments.slice(shownComments, shownComments + PHOTO_CONSTS.COMMENTS_PER_PAGE);
+  const remainingComments = currentComments.slice(shownComments, shownComments + PhotoConsts.COMMENTS_PER_PAGE);
   renderComments(remainingComments);
   shownComments += remainingComments.length;
   commentsShownCount.textContent = shownComments;
@@ -64,6 +64,7 @@ const openBigPicture = ({ url, likes, description, comments }) => {
   likesCount.textContent = likes;
   commentsTotalCount.textContent = comments.length;
   socialCaption.textContent = description;
+
   // Удаляем старые комментарии и сбрасываем счетчики
   socialComments.innerHTML = '';
   currentComments = comments;
@@ -71,8 +72,10 @@ const openBigPicture = ({ url, likes, description, comments }) => {
 
   commentCountBlock.classList.remove('hidden');
   commentsLoader.classList.remove('hidden');
+
   // Показываем первую порцию комментариев
   showMoreComments();
+
   // Добавляем обработчик на кнопку загрузки дополнительных комментариев
   commentsLoader.addEventListener('click', showMoreComments);
 

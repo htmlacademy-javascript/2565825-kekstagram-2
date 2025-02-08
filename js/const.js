@@ -1,4 +1,4 @@
-const PHOTO_CONSTS = {
+const PhotoConsts = {
   MIN_ID: 1,
   MAX_ID: 25,
   MIN_LIKES: 15,
@@ -19,10 +19,12 @@ const PHOTO_CONSTS = {
   SCALE_STEP_VALUE: 25,
   SCALE_MIN_VALUE: 25,
   SCALE_MAX_VALUE: 100,
-  DEFAULT_SCALE_VALUE: 100
+  DEFAULT_SCALE_VALUE: 100,
+  MAX_PHOTO_COUNT: 10,
+  DEBOUNCE_DELAY: 500
 };
 
-const EFFECTS = {
+const effects = {
   default: {
     filter: null,
     effectsSlider: null,
@@ -69,4 +71,4 @@ const EFFECTS = {
   }
 };
 
-export { PHOTO_CONSTS, EFFECTS };
+export { PhotoConsts, effects };

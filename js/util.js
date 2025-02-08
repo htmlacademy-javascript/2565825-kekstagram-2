@@ -22,6 +22,11 @@ function createRandomId(min, max) {
   };
 }
 
+const getInteger = (value) => {
+  value = Number(value);
+  return Number.isInteger(value) ? value : value.toFixed(1);
+};
+
 const debounce = (callback, timeoutDelay = 500) => {
   let timeoutId;
   return (...rest) => {
@@ -32,4 +37,4 @@ const debounce = (callback, timeoutDelay = 500) => {
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-export { getRandomInteger, createRandomId, getRandomArrayElement, debounce };
+export { getRandomInteger, createRandomId, getRandomArrayElement, debounce, getInteger };

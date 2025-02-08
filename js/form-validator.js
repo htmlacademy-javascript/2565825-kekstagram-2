@@ -1,10 +1,10 @@
-import { PHOTO_CONSTS } from './const.js';
+import { PhotoConsts } from './const.js';
 import { resetFilters } from './effects-slider.js';
 import { resetScale } from './photo-scale.js';
 import { sendData } from './api.js';
 import { photoUploading } from './photo-uploading.js';
 
-const { MAX_COMMENT_SYBMOLS, MAX_SYMBOLS, MAX_HASHTAGS } = PHOTO_CONSTS;
+const { MAX_COMMENT_SYBMOLS, MAX_SYMBOLS, MAX_HASHTAGS } = PhotoConsts;
 
 const uploadForm = document.querySelector('.img-upload__form');
 const body = document.querySelector('body');
@@ -12,6 +12,7 @@ const uploadOverlay = document.querySelector('.img-upload__overlay');
 const closeButton = document.querySelector('.img-upload__cancel');
 const hashtagsInput = document.querySelector('.text__hashtags');
 const descriptionInput = document.querySelector('.text__description');
+const submitButton = document.querySelector('.img-upload__submit');
 const SUCCESS_TEMPLATE = document.querySelector('#success').content.querySelector('.success');
 const ERROR_TEMPLATE = document.querySelector('#error').content.querySelector('.error');
 
@@ -41,6 +42,10 @@ const hashtagRules = [
   {
     check: (inputArray) => inputArray.every((item, index, array) => array.indexOf(item) === index),
     error: 'Хэштеги не должны повторяться',
+  },
+  {
+    check: (inputValue) => inputValue.every((item) => new RegExp(`^#[a-zа-яё0-9]{1,${MAX_SYMBOLS}}$`, 'i').test(item)),
+    error: 'Недопустимые символы, допустимы буквы, цифры и символ \'#\'',
   },
   {
     check: (inputArray) => inputArray.every((item) => item.length <= MAX_COMMENT_SYBMOLS),
@@ -83,6 +88,7 @@ const getDescriptionError = () =>
   `Длина комментария не может превышать ${MAX_COMMENT_SYBMOLS} символов.`;
 pristine.addValidator(hashtagsInput, validateHashtags, getHashtagsError);
 pristine.addValidator(descriptionInput, validateDescription, getDescriptionError);
+
 const openEditForm = () => {
   uploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
@@ -104,13 +110,37 @@ function closeEditForm() {
 
 // Закрытие формы при нажатии Escape
 function onEscKeyPress(evt) {
-  if (evt.key === 'Escape' &&
-    !hashtagsInput.matches(':focus') &&
-    !descriptionInput.matches(':focus')) {
+  if (evt.key === 'Escape') {
     evt.preventDefault();
-    closeEditForm();
+
+    const message = document.querySelector('.success, .error');
+
+    if (message) {
+      message.remove();
+      document.removeEventListener('keydown', onEscKeyPress);
+
+      if (!uploadOverlay.classList.contains('hidden')) {
+        document.addEventListener('keydown', onEscKeyPress);
+      }
+      return;
+    }
+
+    if (
+      !hashtagsInput.matches(':focus') &&
+      !descriptionInput.matches(':focus')
+    ) {
+      closeEditForm();
+    }
   }
 }
+
+[hashtagsInput, descriptionInput].forEach((activeInput) => {
+  activeInput.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      evt.stopPropagation();
+    }
+  });
+});
 
 const showMessage = (template) => {
   const message = template.cloneNode(true);
@@ -141,6 +171,7 @@ uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (isValid) {
+    submitButton.disabled = true;
     const formData = new FormData(uploadForm);
     sendData(formData)
       .then(() => {
@@ -149,6 +180,9 @@ uploadForm.addEventListener('submit', (evt) => {
       })
       .catch(() => {
         showMessage(ERROR_TEMPLATE);
+      })
+      .finally(() => {
+        submitButton.disabled = false;
       });
   }
 });
