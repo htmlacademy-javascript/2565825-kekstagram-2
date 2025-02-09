@@ -24,6 +24,8 @@ const PhotoConsts = {
   DEBOUNCE_DELAY: 500
 };
 
+const FileTypes = /\.(jpg|jpeg|png)$/i;
+
 const effects = {
   default: {
     filter: null,
@@ -71,4 +73,4 @@ const effects = {
   }
 };
 
-export { PhotoConsts, effects };
+export { PhotoConsts, effects, FileTypes };
