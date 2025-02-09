@@ -28,19 +28,19 @@ photoUploading();
 // Правила валидации хэштегов
 const hashtagRules = [
   {
-    check: (inputArray) => inputArray.every((item) => item !== '#'),
+    check: (inputArrayss) => inputArrayss.every((item) => item !== '#'),
     error: 'Хэштег не может состоять только из одной решётки',
   },
   {
-    check: (inputArray) => inputArray.every((item) => !item.slice(1).includes('#')),
+    check: (inputArrayss) => inputArrayss.every((item) => !item.slice(1).includes('#')),
     error: 'Хэштеги разделяются пробелами',
   },
   {
-    check: (inputArray) => inputArray.every((item) => item[0] === '#'),
+    check: (inputArrayss) => inputArrayss.every((item) => item[0] === '#'),
     error: 'Хэштег должен начинаться с символа "#"',
   },
   {
-    check: (inputArray) => inputArray.every((item, index, array) => array.indexOf(item) === index),
+    check: (inputArrays) => inputArrays.every((item, index, array) => array.indexOf(item) === index),
     error: 'Хэштеги не должны повторяться',
   },
   {
@@ -48,11 +48,11 @@ const hashtagRules = [
     error: 'Недопустимые символы, допустимы буквы, цифры и символ \'#\'',
   },
   {
-    check: (inputArray) => inputArray.every((item) => item.length <= MAX_COMMENT_SYBMOLS),
+    check: (inputArrays) => inputArrays.every((item) => item.length <= MAX_COMMENT_SYBMOLS),
     error: `Максимальная длина одного хэштега ${MAX_SYMBOLS} символов, включая решётку`,
   },
   {
-    check: (inputArray) => inputArray.length <= MAX_HASHTAGS,
+    check: (inputArrays) => inputArrays.length <= MAX_HASHTAGS,
     error: `Нельзя указать больше ${MAX_HASHTAGS} хэштегов`,
   },
 ];
@@ -62,8 +62,8 @@ const validateHashtags = (value) => {
   if (!value.trim()) {
     return true; // Пустое значение валидно
   }
-  const inputArray = value.trim().toLowerCase().split(/\s+/);
-  return hashtagRules.every((rule) => rule.check(inputArray));
+  const inputArrays = value.trim().toLowerCase().split(/\s+/);
+  return hashtagRules.every((rule) => rule.check(inputArrays));
 };
 
 // Функция получения текста ошибки
@@ -72,9 +72,9 @@ const getHashtagsError = (value) => {
     return '';
   }
 
-  const inputArray = value.trim().toLowerCase().split(/\s+/);
+  const inputArrays = value.trim().toLowerCase().split(/\s+/);
   for (const rule of hashtagRules) {
-    if (!rule.check(inputArray)) {
+    if (!rule.check(inputArrays)) {
       return rule.error;
     }
   }
@@ -89,22 +89,22 @@ const getDescriptionError = () =>
 pristine.addValidator(hashtagsInput, validateHashtags, getHashtagsError);
 pristine.addValidator(descriptionInput, validateDescription, getDescriptionError);
 
-const openEditForm = () => {
+const onOpenEditForm = () => {
   uploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
-  closeButton.addEventListener('click', closeEditForm);
+  closeButton.addEventListener('click', onCloseEditForm);
   document.addEventListener('keydown', onEscKeyPress);
 };
 
 // Закрытие формы редактирования
-function closeEditForm() {
+function onCloseEditForm() {
   uploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
   uploadForm.reset();
   pristine.reset();
   resetFilters();
   resetScale();
-  closeButton.removeEventListener('click', closeEditForm);
+  closeButton.removeEventListener('click', onCloseEditForm);
   document.removeEventListener('keydown', onEscKeyPress);
 }
 
@@ -129,7 +129,7 @@ function onEscKeyPress(evt) {
       !hashtagsInput.matches(':focus') &&
       !descriptionInput.matches(':focus')
     ) {
-      closeEditForm();
+      onCloseEditForm();
     }
   }
 }
@@ -142,11 +142,11 @@ function onEscKeyPress(evt) {
   });
 });
 
-const showMessage = (template) => {
+const onMessageShow = (template) => {
   const message = template.cloneNode(true);
   document.body.appendChild(message);
 
-  const removeMessage = () => {
+  const onMessageRemove = () => {
     message.remove();
     document.removeEventListener('keydown', onEscKeyPress);
     document.removeEventListener('click', onOutsideClick);
@@ -154,12 +154,12 @@ const showMessage = (template) => {
 
   function onOutsideClick(evt) {
     if (evt.target === message) {
-      removeMessage();
+      onMessageRemove();
     }
   }
 
   if (message.querySelector('button')) {
-    (message.querySelector('button')).addEventListener('click', removeMessage);
+    (message.querySelector('button')).addEventListener('click', onMessageRemove);
   }
 
   document.addEventListener('keydown', onEscKeyPress);
@@ -175,11 +175,11 @@ uploadForm.addEventListener('submit', (evt) => {
     const formData = new FormData(uploadForm);
     sendData(formData)
       .then(() => {
-        closeEditForm();
-        showMessage(SUCCESS_TEMPLATE);
+        onCloseEditForm();
+        onMessageShow(SUCCESS_TEMPLATE);
       })
       .catch(() => {
-        showMessage(ERROR_TEMPLATE);
+        onMessageShow(ERROR_TEMPLATE);
       })
       .finally(() => {
         submitButton.disabled = false;
@@ -188,7 +188,7 @@ uploadForm.addEventListener('submit', (evt) => {
 });
 
 uploadForm.addEventListener('reset', () => {
-  closeEditForm();
+  onCloseEditForm();
 });
 
-export { openEditForm, showMessage };
+export { onOpenEditForm, onMessageShow };

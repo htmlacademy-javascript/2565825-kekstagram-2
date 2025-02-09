@@ -44,7 +44,7 @@ const renderComments = (comments) => {
 };
 
 // Функция для показа следующей порции комментариев
-const showMoreComments = () => {
+const onCommentsShowMore = () => {
   const remainingComments = currentComments.slice(shownComments, shownComments + PhotoConsts.COMMENTS_PER_PAGE);
   renderComments(remainingComments);
   shownComments += remainingComments.length;
@@ -74,10 +74,10 @@ const openBigPicture = ({ url, likes, description, comments }) => {
   commentsLoader.classList.remove('hidden');
 
   // Показываем первую порцию комментариев
-  showMoreComments();
+  onCommentsShowMore();
 
   // Добавляем обработчик на кнопку загрузки дополнительных комментариев
-  commentsLoader.addEventListener('click', showMoreComments);
+  commentsLoader.addEventListener('click', onCommentsShowMore);
 
   // Обработчики закрытия окна
   const onClose = () => {
@@ -85,7 +85,7 @@ const openBigPicture = ({ url, likes, description, comments }) => {
     body.classList.remove('modal-open');
     closeButton.removeEventListener('click', onClose);
     document.removeEventListener('keydown', onEscClose);
-    commentsLoader.removeEventListener('click', showMoreComments);
+    commentsLoader.removeEventListener('click', onCommentsShowMore);
   };
 
   function onEscClose(evt) {
